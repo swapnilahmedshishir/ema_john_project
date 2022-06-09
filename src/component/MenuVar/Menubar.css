@@ -1,0 +1,18 @@
+.menuBar nav{
+    background-color: black;
+    line-height: 60px;
+    text-align: left;
+    padding-left: 33px;
+}
+ nav a {
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 15px;
+    padding: 5px;
+    color: white;
+}
+nav a:hover{
+    background-color: aliceblue;
+    padding: 10px 5px;
+    color: black;
+}
