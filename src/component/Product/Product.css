@@ -1,0 +1,22 @@
+.product{
+    display: flex;
+    border-bottom: 1px solid lightblue;
+    margin-right: 5px;
+   
+    padding: 15px 0px;
+}
+.product-image{
+    margin-right: 10px;
+   
+    
+}
+.image_style{
+    height: 20px;
+}
+#cart_btn{
+    background-color: #f7d206;
+    border: 1px solid gray;
+    padding: 5px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
