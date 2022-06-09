@@ -1,0 +1,5 @@
+.order_summ{text-align:center}
+.Order_btn{ margin-top: 30px; background-color:#daa520;border:1px solid gray;border-radius:5px;font-size:18px;padding:7px 16px;cursor:pointer;text-align:center}
+.total_amount{color:tomato;font-weight:500}
+hr{border:1px #8b4513 solid}
+span{display:block;margin:13px 3px}

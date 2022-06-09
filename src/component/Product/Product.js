@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.css";
 import imgs from './image/shopping-cart-of-checkered-design.png';
 const Product = (props) => {
-  //console.log(props.product);
+  // console.log(props);
   const {name,img,seller,price,stock}=props.product;
   return (
     <div className="product">
@@ -16,7 +16,7 @@ const Product = (props) => {
         <p>${price}</p>
         <br/>
         <p><small>only {stock} available - Order soon</small></p>
-        <button id="cart_btn"><img src={imgs} className="image_style" alt=""/> add to cart</button>
+        <button id="cart_btn" onClick={() => props.HandleAddProduct(props.product)} ><img src={imgs} className="image_style" alt=""/> add to cart</button>
       </div>
     </div>
   );
