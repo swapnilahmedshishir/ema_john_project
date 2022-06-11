@@ -3,7 +3,7 @@ import './Menubar.css';
 const Menubar = () => {
     return (
         <div className='menuBar'>
-          <nav><a href="/shop">shop</a>
+          <nav><a href="/shop">Shop</a>
           <a href="/orderReview">Order Review</a>
           <a href="/manage">Manage Inventory Here</a></nav>
         </div>
