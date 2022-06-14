@@ -5,7 +5,7 @@ import "./Header.css";
 const Header = () => {
     return (
         <div className='header'>
-           <img src={logoImage} alt="" />
+           <a href='/'><img src={logoImage} alt="" /></a>
            <Menubar></Menubar>
         </div>
     );
