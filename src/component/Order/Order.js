@@ -2,12 +2,12 @@ import React from 'react';
 import './Order.css';
 const Order = (props) => {
     const cart = props.cartData;
-    console.log(cart);
+   // console.log(cart);
      
     let Total = 0;
     for(let i = 0 ; i < cart.length ; i++){
         let newCart = cart[i];
-        console.log(newCart);
+        //console.log(newCart);
         Total = Total + newCart.price;
     }     
        
