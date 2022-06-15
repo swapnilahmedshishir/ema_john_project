@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Order.css';
 const Order = (props) => {
     const cart = props.cartData;
@@ -42,7 +43,8 @@ const Order = (props) => {
                 <span>Estimated Tax : {numberRound(Taxt)}</span>
                 <hr/>
                 <span className='total_amount'>Order Total Price: {numberRound(orderTotal)} </span>
-                <button className="Order_btn" >Review Your Order</button>
+               <Link to={"/review"}><button className="Order_btn" >Review Your Order</button></Link>
+                
             </div>
             
 
