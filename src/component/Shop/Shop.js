@@ -3,6 +3,7 @@ import "./Shop.css";
 import fakeData from "../../fakeData";
 import Product from "../Product/Product";
 import Order from "../Order/Order";
+import { addToDb } from "../../utilities/fakedb";
 
 const Shop = () => {
  
@@ -13,6 +14,8 @@ const Shop = () => {
   const HandleAddProduct = (product) =>{
     const newCart = [...cart,product ] ;
     setCart(newCart);
+    ///console.log(product.key);
+    addToDb(product.key);
    
   }
   
@@ -24,7 +27,7 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart_container">
-       <Order cartData={cart} ></Order>
+       <Order cartData={cart} reviewBtn={true}></Order>
       </div>
     </div>
   );

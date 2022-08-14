@@ -1,25 +1,22 @@
-import { useParams } from 'react-router-dom';
-import fakeData from '../../fakeData';
-import Product from '../Product/Product';
+import { useParams } from "react-router-dom";
+import fakeData from "../../fakeData";
+import Product from "../Product/Product";
 const DetalisProduct = () => {
-    const {productKey} = useParams();
-    const FakeData =  fakeData
-    const product = FakeData.find(pd => pd.key === productKey);
-   
-    console.log(product.name);
-    return (
-        <div>
-            <div style={{maxWidth:"520px" , margin:"0 auto"}}>
-            <h1 style={{textAlign:'center'}}>Product details {product.category}</h1>
-            <Product product={product} addToCart={false}></Product>
-            </div>
-            
+  const { productKey } = useParams();
+  const FakeData = fakeData;
+  const product = FakeData.find((pd) => pd.key === productKey);
 
+  
+  return (
+    <div>
+      <div style={{ maxWidth: "520px", margin: "0 auto" }}>
+        <h1 style={{ textAlign: "center" }}>
+          Product details {product.category}
+        </h1>
+        <Product product={product} addToCart={false}></Product>
+      </div>
 
-
-
-
-            {/* <div style={{maxWidth:"520px" , margin:"0 auto"}}>
+      {/* <div style={{maxWidth:"520px" , margin:"0 auto"}}>
             <div style={{display:"flex"}}>
                 <img src={product.img} alt=""/>
                 <h2 style={{marginLeft:'10px'}}>{product.name}</h2>
@@ -30,9 +27,8 @@ const DetalisProduct = () => {
                 <button style={{marginLeft:'140px'}}> Buy Now </button>
             </div>
             </div> */}
-            
-        </div>
-    );
+    </div>
+  );
 };
 
 export default DetalisProduct;

@@ -1,0 +1,10 @@
+.cart_item{
+    width: 700px;
+    margin: 0 auto;
+    border-bottom: 2px solid gray;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+.product-name{
+  color: blue;
+}

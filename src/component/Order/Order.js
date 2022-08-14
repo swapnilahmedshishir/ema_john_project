@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import './Order.css';
 const Order = (props) => {
     const cart = props.cartData;
-   // console.log(cart);
+   console.log(props);
      
     let Total = 0;
     for(let i = 0 ; i < cart.length ; i++){
         let newCart = cart[i];
         //console.log(newCart);
-        Total = Total + newCart.price;
+        Total = Total + newCart.price * newCart.quantity ;
     }     
        
 
@@ -43,7 +43,7 @@ const Order = (props) => {
                 <span>Estimated Tax : {numberRound(Taxt)}</span>
                 <hr/>
                 <span className='total_amount'>Order Total Price: {numberRound(orderTotal)} </span>
-               <Link to={"/review"}><button className="Order_btn" >Review Your Order</button></Link>
+               {props.reviewBtn === true && <Link to={"/review"}><button className="Order_btn" >Review Your Order</button></Link>}
                 
             </div>
             
