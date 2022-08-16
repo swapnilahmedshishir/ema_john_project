@@ -40,8 +40,9 @@ const getStoredCart = () => {
   return exists ? JSON.parse(exists) : {};
 }
 
-const clearTheCart = () => {
-  localStorage.removeItem('shopping_cart');
+
+const processOrder =() => {
+  localStorage.removeItem('shopping_cart'); 
 }
 
-export { getDb,addToDb,removeFromDb, removeFromDb as deleteFromDb, clearTheCart, getStoredCart }
+export { processOrder,getDb,addToDb,removeFromDb, removeFromDb as deleteFromDb, getStoredCart }

@@ -3,28 +3,27 @@ import "./Shop.css";
 import fakeData from "../../fakeData";
 import Product from "../Product/Product";
 import Order from "../Order/Order";
-import { addToDb ,getDb } from "../../utilities/fakedb";
+import { addToDb , getDb } from "../../utilities/fakedb";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const frist10 = fakeData.slice(0, 10);
   const [product] = useState(frist10);
 
   const [cart, setCart] = useState([]);
-
-   useEffect(() => {
-     const getData = getDb() ;
-     const objData = JSON.parse(getData);
-     const dataObjKey = Object.keys(objData);
-
+  useEffect(() => {
+    const getData = getDb() ;
+    const objData = JSON.parse(getData);     
+    const dataObjKey = Object.keys(objData || {});
      const priviousCart = dataObjKey.map(exitKey => {
-       const product = fakeData.find(pd => pd.key === exitKey);
-       product.quantity = objData[exitKey];
-       return product;
-     });
-     setCart(priviousCart)
-   }, []);
-   
+      const product = fakeData.find(pd => pd.key === exitKey);
+      product.quantity = objData[exitKey];
+      return product;
+    });
+    setCart(priviousCart)
+  },[]);
+      
   const HandleAddProduct = (product) => {
     const toBeAddedKey = product.Key;
     const sameProduct = cart.find((pd) => pd.key === toBeAddedKey);
@@ -40,8 +39,10 @@ const Shop = () => {
       newCart = [...cart, product];
     }
     setCart(newCart);
-    addToDb(product.key, count);
+    addToDb(product.key);
   };
+
+ 
 
   return (
     <div className="shop_container">
@@ -56,7 +57,9 @@ const Shop = () => {
         ))}
       </div>
       <div className="cart_container">
-        <Order cartData={cart} reviewBtn={true}></Order>
+        <Order cartData={cart}>
+        <Link to={"/review"}><button className="Order_btn" >Review Order</button></Link>
+        </Order>
       </div>
     </div>
   );

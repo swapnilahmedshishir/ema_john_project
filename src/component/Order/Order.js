@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Order.css';
 const Order = (props) => {
     const cart = props.cartData;
-   console.log(props);
+   //console.log(props);
      
     let Total = 0;
     for(let i = 0 ; i < cart.length ; i++){
@@ -43,7 +42,9 @@ const Order = (props) => {
                 <span>Estimated Tax : {numberRound(Taxt)}</span>
                 <hr/>
                 <span className='total_amount'>Order Total Price: {numberRound(orderTotal)} </span>
-               {props.reviewBtn === true && <Link to={"/review"}><button className="Order_btn" >Review Your Order</button></Link>}
+               {
+                props.children 
+               }
                 
             </div>
             
