@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom' ;
 import { useEffect } from "react";
 import fakeData from "../../fakeData";
 import { getDb, removeFromDb,processOrder } from "../../utilities/fakedb";
@@ -7,15 +8,16 @@ import CartItem from "../CartItem/CartItem";
 import Order from "../Order/Order";
 import HappyImage from '../../images/happy.gif';
 
+
 const Review = () => {
   const [reviewItem, setReviewItem] = useState([]);
   const [orderPlaced, setOrderPlace] = useState(false);
-  
-  const HandelOrderPlace =() => {
-    setReviewItem([]);
-    setOrderPlace(true);
-    processOrder();
+  let navigator = useNavigate();
+
+  const HandelOrderCheckout =() => {
+    navigator("/shipment");
  };
+ 
   const removeProduct = (productKey) => {
     const newCartItem = reviewItem.filter((pd) => pd.key !== productKey);
     setReviewItem(newCartItem);
@@ -58,7 +60,7 @@ if(orderPlaced){
       </div>
       <div className="cart_container">
       <Order cartData={reviewItem}>
-      <button onClick={HandelOrderPlace} className="Order_btn">Order place </button>
+      <button onClick={HandelOrderCheckout} className="Order_btn">Order Checkout </button>
       </Order>
      
         

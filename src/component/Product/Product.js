@@ -2,6 +2,7 @@ import React from "react";
 import "./Product.css";
 import imgs from './image/shopping-cart-of-checkered-design.png';
 import { Link } from "react-router-dom";
+
 const Product = (props) => {
   
   const {name,img,seller,price,stock,key}=props.product;
