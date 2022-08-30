@@ -31,7 +31,7 @@ function Authonitacation() {
     email: "",
     image: "",
   });
-
+//google provder
   const singInBtn = () => {
     signInWithPopup(auth, provider)
       .then((res) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Login.css";
 import { getFirestore} from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
@@ -10,6 +10,9 @@ import {
     signInWithEmailAndPassword
   } from "firebase/auth";
 import firebaseConfig from "./firebaseConfig";
+import { UserContexApi } from "../../App";
+import { useNavigate } from "react-router-dom";
+
 
   const app = initializeApp(firebaseConfig);
  getFirestore(app);
@@ -18,7 +21,13 @@ const auth = getAuth();
 
 
 const Login = () => {
+  //contex user 
+  const [userLoginInfo , setUserLoginInfo] = useContext(UserContexApi);
+  const navigate = useNavigate();
 
+
+ 
+  //form user 
     const [newUser, setNewUser]= useState(false);
 
     const [user, setUser] = useState({
@@ -54,7 +63,8 @@ const Login = () => {
                 const userInfo = {...user}; 
                 userInfo.success = true;
                 userInfo.error = '';        
-                setUser(userInfo)
+                setUser(userInfo);
+                setUserLoginInfo(userInfo);
               })
               .catch((error) => {
                 const userInfo = {...user};
@@ -70,7 +80,11 @@ const Login = () => {
                 const userInfo = {...user}; 
                 userInfo.success = true;
                 userInfo.error = '';        
-                setUser(userInfo)
+                setUser(userInfo);
+                setUserLoginInfo(userInfo);
+                navigate("/shipment");
+                
+                 
                 
               })
                 .catch((error) => {
@@ -164,14 +178,15 @@ const Login = () => {
           Must be 1 number & 8 characters long.
         </span>
 
-        <input className="m-2 Order_btn" type="submit"  name="user" value="SING IN" />
-        <input className="Order_btn" type="button" name="newUser" value="SING UP" onClick={() => setNewUser(!newUser)} />
+        <input className="m-2 Order_btn" type="submit"   value="SING IN" />
+        
+        <span className="text-primary"><input  type="checkbox" name="newUser"  onChange={() => setNewUser(!newUser)} /> new User SING UP </span>
         
       </form>
       { user.success && true ? <p style={{color:'green'}}>{newUser && true ? "SING UP" : "SING IN "} SuccessFully</p> :
       <p style={{color:'red'}}>{user.error}</p>}
     </div>
-  );
+  ); 
 };
 
 export default Login;
