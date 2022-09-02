@@ -82,7 +82,7 @@ const Login = () => {
                 userInfo.error = '';        
                 setUser(userInfo);
                 setUserLoginInfo(userInfo);
-                navigate("/shipment");
+                navigate(-2);
                 
                  
                 

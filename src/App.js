@@ -19,8 +19,6 @@ function App() {
  console.log(userLoginInfo);
   return (
     <UserContexApi.Provider value={[userLoginInfo , setUserLoginInfo] }>
-      <h1>Email:{userLoginInfo.email}</h1>     
-     
       <Header></Header>
       
       <Routes>      
@@ -30,10 +28,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route element={<PrivateRouters/>}>
           <Route path="/shipment" element={<Shipment/>} />
+          <Route path="/manage" element={<Mange />} />
           
         </Route>
         <Route path="/product/:productKey" element={<DetalisProduct/>} />
-        <Route path="/manage" element={<Mange />} />
+        
         <Route path="*" element={<Errow />} />
       </Routes>
       
